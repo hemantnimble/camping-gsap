@@ -94,6 +94,12 @@ function HeroSection() {
 
         return () => {
             bird1Animation.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            bird2Animation.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            backmount.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            fort.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            mt1.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            mt2.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            mt3.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
         };
     }, [])
     return (
