@@ -3,6 +3,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { Rancho } from "next/font/google";
+import { Poppins } from 'next/font/google'
+
+const rancho = Rancho({ weight: "400", subsets: ["latin"] });
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+
 
 gsap.registerPlugin(ScrollTrigger);
 function HeroSection() {
@@ -15,11 +21,11 @@ function HeroSection() {
                 start: '-160% 10%', // Animation starts when `.bird1` reaches the center of the viewport
                 end: '1000% 10%', // Animation ends after 500px of scrolling
                 scrub: 1, // Smoothly ties animation to scroll
-                markers: true, //
+                // markers: true, //
             },
         });
         const bird2Animation = gsap.to('.bird2', {
-            x: -300,
+            x: -200,
             y: -300,
             ease: 'power2.out',
             scrollTrigger: {
@@ -56,7 +62,7 @@ function HeroSection() {
         });
         const mt1 = gsap.to('.mt1', {
             // x: -50,
-            y: 50,
+            y: 15,
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: '.bird1',
@@ -90,6 +96,18 @@ function HeroSection() {
                 // markers: true,
             },
         });
+        const text = gsap.to('.text', {
+            // x: -50,
+            y: -100,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.bird1',
+                start: '-50% 10%',
+                end: '1000% 10%',
+                scrub: 1,
+                // markers: true,
+            },
+        });
 
         return () => {
             bird1Animation.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
@@ -99,13 +117,14 @@ function HeroSection() {
             mt1.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
             mt2.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
             mt3.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
+            text.scrollTrigger?.kill(); // Cleanup the ScrollTrigger on component unmount
         };
     }, [])
     return (
         <section className='relative w-full h-[100vh] overflow-hidden'>
-            <div className='flex flex-col items-center absolute z-20 top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                <span className='text-6xl mb-2'>Advanture</span>
-                <span>pawna cmp sitess</span>
+            <div className='text flex flex-col items-center absolute z-[1] top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <span className={`${poppins.className} text-xl tracking-[2px] font-[400] text-[#5c6973]`}>Its time for some</span>
+                <span className="text-8xl font-semibold font-rancho text-[#5c6973]">Advanture</span>
             </div>
             <img className='sky absolute object-cover h-1/2' src="/assets/sky.png" alt="" />
             <img className='bird1 absolute right-12 z-10 w-8 top-40' src="/assets/birdright.png" alt="" />
