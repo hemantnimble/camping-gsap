@@ -3,10 +3,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import { Rancho } from "next/font/google";
 import { Poppins } from 'next/font/google'
 
-const rancho = Rancho({ weight: "400", subsets: ["latin"] });
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 
