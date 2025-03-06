@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@next/font": "^14.2.15",
     "gsap": "^3.12.7",
     "lenis": "^1.1.20",
