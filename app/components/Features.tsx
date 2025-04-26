@@ -63,7 +63,7 @@ export default function Features() {
       {/* Middle Section - Horizontal Scroll */}
       <section
         ref={horizontalSectionRef}
-        className="horizontal-scroll-section h-screen w-full overflow-hidden bg-green-100"
+        className="horizontal-scroll-section h-[60vh] pt-44 w-full overflow-hidden bg-green-100"
       >
         <div className="flex w-max h-full">
           {cards.map((item,index) => (
