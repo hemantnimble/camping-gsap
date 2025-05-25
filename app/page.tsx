@@ -1,5 +1,3 @@
-import ExpandingImg from "./components/ExpandingImg";
-import Features from "./components/Features";
 import HeroSection from "./components/HeroSection";
 import ReactLenis from "lenis/react";
 import Timeline from "./components/Timeline";

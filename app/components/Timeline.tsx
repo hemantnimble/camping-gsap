@@ -50,6 +50,18 @@ export default function Timeline() {
     }
   ];
 
+  // Create animations at the top level
+  const itemAnimations = timelineData.map((_, index) => {
+    const itemStart = index / timelineData.length;
+    const itemEnd = (index + 1) / timelineData.length;
+    
+    return {
+      y: useTransform(scrollYProgress, [itemStart, itemEnd], [50, 0]),
+      opacity: useTransform(scrollYProgress, [itemStart, itemEnd], [0, 1]),
+      scale: useTransform(scrollYProgress, [itemStart, itemEnd], [0.9, 1])
+    };
+  });
+
   return (
     <section ref={containerRef} className="relative py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -61,26 +73,7 @@ export default function Timeline() {
           
           {/* Timeline items */}
           {timelineData.map((item, index) => {
-            const itemStart = index / timelineData.length;
-            const itemEnd = (index + 1) / timelineData.length;
-            
-            const y = useTransform(
-              scrollYProgress,
-              [itemStart, itemEnd],
-              [50, 0]
-            );
-            
-            const opacity = useTransform(
-              scrollYProgress,
-              [itemStart, itemEnd],
-              [0, 1]
-            );
-            
-            const scale = useTransform(
-              scrollYProgress,
-              [itemStart, itemEnd],
-              [0.9, 1]
-            );
+            const { y, opacity, scale } = itemAnimations[index];
 
             return (
               <motion.div
@@ -101,7 +94,7 @@ export default function Timeline() {
                   >
                     <span className="text-blue-500 font-bold">{item.year}</span>
                     <h3 className="text-xl font-semibold mt-2 text-gray-800">{item.title}</h3>
-                  <img src={item.imgsrc} alt="" />
+                    <img src={item.imgsrc} alt="" />
                   </motion.div>
                   
                   {/* Dot */}
