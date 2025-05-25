@@ -7,7 +7,7 @@ interface TimelineItem {
   id: number;
   year: string;
   title: string;
-  description: string;
+  imgsrc: string;
 }
 
 export default function Timeline() {
@@ -20,40 +20,40 @@ export default function Timeline() {
   const timelineData: TimelineItem[] = [
     {
       id: 1,
-      year: '2020',
-      title: 'Company Founded',
-      description: 'Our journey began with a small team passionate about innovation.'
+      year: '4 Pm',
+      title: 'Grab Tents',
+      imgsrc: '/assets/features/scheduletent.jpg'
     },
     {
       id: 2,
       year: '2021',
       title: 'First Product Launch',
-      description: 'Released our flagship product to market with great success.'
+      imgsrc: '/assets/features/scheduletent.jpg'
     },
     {
       id: 3,
       year: '2022',
       title: 'Series A Funding',
-      description: 'Secured $10M in funding to expand our operations.'
+      imgsrc: '/assets/features/scheduletent.jpg'
     },
     {
       id: 4,
       year: '2023',
       title: 'International Expansion',
-      description: 'Opened offices in 3 new countries across Europe and Asia.'
+      imgsrc: '/assets/features/scheduletent.jpg'
     },
     {
       id: 5,
       year: '2024',
       title: 'Current Milestone',
-      description: 'Celebrating our most successful year yet with record growth.'
+      imgsrc: '/assets/features/scheduletent.jpg'
     }
   ];
 
   return (
     <section ref={containerRef} className="relative py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Our Journey</h2>
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Schedule</h2>
         
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline line */}
@@ -101,7 +101,7 @@ export default function Timeline() {
                   >
                     <span className="text-blue-500 font-bold">{item.year}</span>
                     <h3 className="text-xl font-semibold mt-2 text-gray-800">{item.title}</h3>
-                    <p className="mt-2 text-gray-600">{item.description}</p>
+                  <img src={item.imgsrc} alt="" />
                   </motion.div>
                   
                   {/* Dot */}
